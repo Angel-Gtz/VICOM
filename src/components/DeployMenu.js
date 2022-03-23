@@ -1,4 +1,5 @@
 import React from 'react'
+import Icons from './Icons'
 
 const DeployMenu = ({setMenu, navigationItems}) => {
     return (
@@ -12,6 +13,11 @@ const DeployMenu = ({setMenu, navigationItems}) => {
                     return <p className="App-header-navigation-options__items" key={index}>{element}</p>
                     })
                 }
+            </div>
+            <div className="DeployMenu-login">
+                <Icons />
+                <h5>Iniciar Sesión</h5>
+
             </div>
       </div>
     )

@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
+  margin-bottom: 50px;
 }
 
 @font-face {
@@ -144,12 +145,21 @@
   font-size: 20px;
 }
 
+.DeployMenu-login{
+  @extend .flex-center;
+  width: 100%;
+  font-family: 'Museo-Sans';
+  font-weight: 500;
+  font-size: 20px;
+}
+
 // --------------------
 
 // --------- MAIN ----------
 
 .App-main{
   width: 100%;
+  margin-bottom: 50px
 }
 
 .App-main-eckoContainer{
@@ -252,6 +262,49 @@
     color: white;
   }
 }
+// --------------------
+
+// ---------- LO MAS VENDIDO ---------
+
+  .App-losMasVendidos{
+    @extend .flex-center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .App-losMasVendidos__title{
+    font-family: 'Museo-Sans';
+    font-weight: 700;
+    font-size: 50px;
+  }
+
+  .App-losMasVendidos-content{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill,minmax(310px, 1fr));
+    justify-self: center;
+    width: 95%;
+  }
+
+  .App-losMasVendidos-box{
+    flex-direction: column;
+    width: 303px;
+    height: 450px;
+  }
+
+  .App-losMasVendidos__subtitle{
+    color: rgb(102,102,102);
+    font-family: 'Museo-Sans';
+    font-weight: 500;
+    font-size: 25px;
+  }
+
+  .App-losMasVendidos__text{
+    color: rgb(102,102,102);
+    font-family: 'Museo-Sans';
+    font-weight: 300;
+    font-size: 15px;
+  }
 
 // --------------------
 
@@ -264,14 +317,7 @@
   }
 }
 
-@media only screen and (max-width: 1000px) {
-  .App-main-heroContainer{
-    flex-direction: column;
-    height: auto;
-    margin: 0;
-    width: 100%;
-  }
-
+@media only screen and (max-width: 1150px){
   .App-header-navigation-options{
     display: none;
   }
@@ -283,21 +329,8 @@
     justify-content: center;
   }
 
-  .App-main-promoContainer_imgs{
-    display: flex;
-    flex-direction: column;
-  }
-
   .DeployMenu{
     display: block;
-  }
-
-  .App-main__kitchenImg{
-    width: 100vw;
-  }
-
-  .App-main__bluePromoImg{
-    width: 100vw;
   }
 
   .App-header-navigation__img-container{
@@ -306,6 +339,28 @@
 
   .App-header-navigation__icons-container{
     width: 33%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .App-main-heroContainer{
+    flex-direction: column;
+    height: auto;
+    margin: 0;
+    width: 100%;
+  }
+
+  .App-main-promoContainer_imgs{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .App-main__kitchenImg{
+    width: 100vw;
+  }
+
+  .App-main__bluePromoImg{
+    width: 100vw;
   }
 
   .App-header-navigation{

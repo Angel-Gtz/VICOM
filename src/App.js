@@ -7,6 +7,8 @@ function App() {
 
   const [menu, setMenu] = useState(false)
   const navigationItems = ['Cocción', 'Preparación', 'Mesa y accsorios', 'Consumibles', 'Electrodomesticos', 'Línea profesional']
+  const losMasVendidos = [{}, {}, {}, {}]
+
   return (
     <div className="App">
       <header className="App-header">
@@ -69,6 +71,24 @@ function App() {
           </div>
         </div>
       </main>
+      <div className="App-losMasVendidos">
+          <h1 className="App-losMasVendidos__title">Los más vendidos</h1>
+      </div>
+      <div className="App-losMasVendidos-content">
+
+        {
+          losMasVendidos.map((element, index) => {
+            return (
+              <div className="App-losMasVendidos-box">
+                <img src="/images/placeholder.png" />
+                <h3 className="App-losMasVendidos__subtitle">Titulo</h3>
+                <p className="App-losMasVendidos__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <button className="App-main-heroContainer__btn">VER TODO</button>
+              </div>
+            )
+          })
+        }
+      </div>
     </div>
   );
 }
