@@ -1,12 +1,14 @@
 import './App.scss';
+import React, {useState} from 'react'
 import Icons from './components/Icons'
+import DeployMenu from './components/DeployMenu'
 
 function App() {
 
+  const [menu, setMenu] = useState(false)
   const navigationItems = ['Cocción', 'Preparación', 'Mesa y accsorios', 'Consumibles', 'Electrodomesticos', 'Línea profesional']
-  
   return (
-    <body className="App">
+    <div className="App">
       <header className="App-header">
         <div className="App-header-banner">
           <h3 className="App-header-banner__text">
@@ -14,9 +16,15 @@ function App() {
           </h3>
         </div>
         <div className="App-header-navigation">
+          <div className="App-header-menu__btn">
+            <img src="/icons/menu.png" alt="menu deplegable" className="App-header_menuIcon" onClick={() => setMenu(true)}/>
+          </div>
           <div className="App-header-navigation__img-container">
             <img src="/images/lavasconia.png" alt="lavasconia logo" className="App-header-navigation__img"/>
           </div>
+          {
+            menu === true && <DeployMenu setMenu={setMenu} navigationItems={navigationItems}/>
+          }
           <div className="App-header-navigation-options">
             {
               navigationItems.map((element, index) => {
@@ -35,10 +43,8 @@ function App() {
           <img src="/images/ecko.png" alt="ECKO logo" className="App-body__ecko__img"/>
         </div>
         <div className="App-main-promoContainer">
-          <div className="App-main-container">
+          <div className="App-main-promoContainer_imgs">
             <img src="/images/bluePromo.png" alt="5 pack de sartenes ekco a solo 899" className="App-main__bluePromoImg"/>
-          </div>
-          <div className="App-main-container">
             <img src="/images/kitchen.png" alt="cocina con productos ecko" className="App-main__kitchenImg"/>
           </div>
         </div>
@@ -61,7 +67,7 @@ function App() {
               </div>
         </div>
       </main>
-    </body>
+    </div>
   );
 }
 
