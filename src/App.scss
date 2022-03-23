@@ -1,0 +1,75 @@
+.App {
+  text-align: center;
+  width: 100vw;
+  @font-face {
+    font-family: "Museo-Sans";
+    src: url("../public/fonts/MuseoSans-300.ttf") format("ttf"),
+         url("../public//fonts/MuseoSans-500.ttf") format("ttf"),
+         url("../public//fonts/MuseoSans-700.ttf") format("ttf");
+  }
+}
+
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ---------- HEADER ----------
+
+.App-header{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header-banner{
+  @extend .flex-center;
+  width: 100%;
+  background-color: rgb(235,170,63);
+  height: 40px;
+  color: white;
+  font-family: "Museo-Sans";
+}
+
+.App-header-banner__text{
+  font-weight: 300;
+  font-size: 13px;
+}
+
+.App-header-navigation{
+  @extend .flex-center;
+  height: 90px;
+  width: 100%;
+  justify-content: space-evenly;
+  border-bottom: 1px solid rgb(231, 231, 231);
+}
+
+.App-header-navigation__img-container{
+  @extend .flex-center;
+  height: 100%;
+  width: 20%;
+}
+
+.App-header-navigation__img{
+  width: 186px;
+}
+
+.App-header-navigation-options{
+  @extend .flex-center;
+  justify-content: space-evenly;
+  width: 60%;
+  height: 100%;
+}
+
+.App-header-navigation-options__items{
+
+}
+
+.App-header-navigation__icons-container{
+  @extend .flex-center;
+  width: 20%;
+  height: 100%;
+}
+
+// --------------------
