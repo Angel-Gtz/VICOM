@@ -4,12 +4,27 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
-  @font-face {
-    font-family: "Museo-Sans";
-    src: url("../public/fonts/MuseoSans-300.ttf") format("ttf"),
-         url("../public//fonts/MuseoSans-500.ttf") format("ttf"),
-         url("../public//fonts/MuseoSans-700.ttf") format("ttf");
-  }
+}
+
+@font-face {
+  font-family: 'Museo-Sans';
+  src: url("./fonts/MuseoSans-300.ttf");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Museo-Sans';
+  src: url("./fonts/MuseoSans-500.ttf");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Museo-Sans';
+  src: url("./fonts/MuseoSans-700.ttf");
+  font-style: normal;
+  font-weight: 700;
 }
 
 .flex-center{
@@ -32,12 +47,13 @@
   background-color: rgb(235,170,63);
   height: 40px;
   color: white;
-  font-family: "Museo-Sans";
 }
 
 .App-header-banner__text{
   font-weight: 300;
   font-size: 13px;
+  font-family: 'Museo-Sans';
+  font-weight: 300
 }
 
 .App-header-navigation{
@@ -56,7 +72,8 @@
 
 .App-header_menuIcon{
   cursor: pointer;
-  width: 40px;
+  width: 35px;
+  margin-right: 10px
 }
 
 .App-header-navigation__img-container{
@@ -78,6 +95,8 @@
 
 .App-header-navigation-options__items{
   cursor: pointer;
+  font-family: 'Museo-Sans';
+  font-weight: 300;
   &:hover{
     color: rgb(73, 73, 73);
   }
@@ -168,9 +187,13 @@
   margin: 0 75px;
 }
 
+.App-main-heroContainer-fryingPanContainer{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
 .App-main__fryingPanImg{
-  // width: 564px;
-  width: 50%;
   height: 710px;
 }
 
@@ -178,28 +201,39 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  // width: 400px;
   width: 32%;
   padding-right: 167px;
 }
 
 .App-main-heroContainer__h1{
   text-align: left;
+  font-family: 'Museo-Sans';
+  font-weight: 700;
+  font-size: 55px;
 }
 
 .App-main-heroContainer__h2{
   text-align: left;
+  font-family: 'Museo-Sans';
+  font-weight: 300;
+  margin-top: 30px;
 }
 
 .App-main-heroContainer__h5{
   text-align: left;
-  color: rgb(150,150,150);
+  font-size: 15px;
+  color: rgb(131,131,131);
+  font-family: 'Museo-Sans';
+  font-weight: 300;
+  margin-top: 30px;
 }
 
 .App-main-heroContainer__text{
   text-align: left;
-  color: rgb(150,150,150);
+  color: rgb(131,131,131);
   font-family: 'Museo-Sans';
+  font-weight: 300;
+  margin-top: -10px;
 }
 
 .App-main-heroContainer__btn{
@@ -272,16 +306,15 @@
 
   .App-header-navigation__icons-container{
     width: 33%;
-    // background-color: chocolate;
   }
 
   .App-header-navigation{
     justify-content: space-evenly;
-    // background: chartreuse;
   }
 
-  .App-main__fryingPanImg{
+  .App-main-heroContainer-fryingPanContainer{
     width: 80%;
+    // background-color: red;
   }
 
   .App-main-heroContainer-textContainer{
@@ -289,4 +322,11 @@
     padding: 0;
   }
 
+}
+
+@media only screen and (max-width: 630px) {
+  .App-main__fryingPanImg{
+    height: 60%;
+    width: 60%;
+  }
 }

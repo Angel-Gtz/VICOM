@@ -9,7 +9,7 @@ const DeployMenu = ({setMenu, navigationItems}) => {
             <div className="DeployMenu__items">
                 { 
                 navigationItems.map((element, index) => {
-                    return <p className="App-header-navigation-options__deployitems" key={index}>{element}</p>
+                    return <p className="App-header-navigation-options__items" key={index}>{element}</p>
                     })
                 }
             </div>
@@ -17,4 +17,4 @@ const DeployMenu = ({setMenu, navigationItems}) => {
     )
 }
 
-export default DeployMenu
+export default DeployMenu             

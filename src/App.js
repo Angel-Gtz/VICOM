@@ -1,4 +1,4 @@
-import './App.scss';
+import './styles/App.scss';
 import React, {useState} from 'react'
 import Icons from './components/Icons'
 import DeployMenu from './components/DeployMenu'
@@ -49,22 +49,24 @@ function App() {
           </div>
         </div>
         <div className="App-main-heroContainer">
-              <img src="/images/fryingPan.png" alt="sarten ecko con camarones" className="App-main__fryingPanImg"/>
-              <div className="App-main-heroContainer-textContainer">
-                <h1 className="App-main-heroContainer__h1">
-                  Recetas EKCO
-                </h1>
-                <h2 className="App-main-heroContainer__h2">
-                  Camarones al mojo de ajo
-                </h2>
-                <h5 className="App-main-heroContainer__h5">
-                Ingredientes:
-                </h5>
-                <p className="App-main-heroContainer__text">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                </p>
-                <button className="App-main-heroContainer__btn">VER TODO</button>
-              </div>
+          <div className="App-main-heroContainer-fryingPanContainer">
+            <img src="/images/fryingPan.png" alt="sarten ecko con camarones" className="App-main__fryingPanImg"/>
+          </div>
+          <div className="App-main-heroContainer-textContainer">
+            <h1 className="App-main-heroContainer__h1">
+              Recetas EKCO
+            </h1>
+            <h2 className="App-main-heroContainer__h2">
+              Camarones al mojo de ajo
+            </h2>
+            <h5 className="App-main-heroContainer__h5">
+            Ingredientes:
+            </h5>
+            <p className="App-main-heroContainer__text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+            <button className="App-main-heroContainer__btn">VER TODO</button>
+          </div>
         </div>
       </main>
     </div>
