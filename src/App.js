@@ -1,13 +1,12 @@
 import './styles/App.scss';
 import React, {useState, useEffect} from 'react'
-import Icons from './components/Icons'
 import DeployMenu from './components/DeployMenu'
 
 function App() {
 
   const [menu, setMenu] = useState(false)
   const navigationItems = ['Cocción', 'Preparación', 'Mesa y accsorios', 'Consumibles', 'Electrodomesticos', 'Línea profesional']
-  const losMasVendidos = [0, 0, 0, 0]
+  const losMasVendidos = new Array(4).fill(0)
   const [state, setState] = useState(false)
   const [character, setCharacter] = useState(null)
   const [index, setIndex] = useState(2)
@@ -56,7 +55,8 @@ function App() {
             }
           </div>
           <div className="App-header-navigation__icons-container">
-            <Icons />
+            <img src="/icons/profile.svg" alt="icono del perfil" className="App-header__icon"/>
+            <img src="/icons/cart.svg" alt="icono del carrito" className="App-header__icon"/>
           </div>
         </div>
       </header>

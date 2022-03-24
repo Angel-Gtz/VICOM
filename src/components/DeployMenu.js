@@ -1,5 +1,4 @@
 import React from 'react'
-import Icons from './Icons'
 
 const DeployMenu = ({setMenu, navigationItems}) => {
     return (
@@ -15,7 +14,7 @@ const DeployMenu = ({setMenu, navigationItems}) => {
                 }
             </div>
             <div className="DeployMenu-login">
-                <Icons />
+                {/* <UserIcon /> */}
                 <h5>Iniciar Sesión</h5>
 
             </div>

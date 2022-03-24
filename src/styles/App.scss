@@ -105,8 +105,18 @@
 
 .App-header-navigation__icons-container{
   @extend .flex-center;
-  width: 20%;
+  justify-content: space-evenly;
+  width: 10%;
+  margin: 0 5%;
   height: 100%;
+}
+
+.App-header__icon{
+  width: 23px;
+}
+
+.App-header__icon{
+  width: 23px;
 }
 
 // --------------------
