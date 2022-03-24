@@ -1,5 +1,5 @@
 import './styles/App.scss';
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Icons from './components/Icons'
 import DeployMenu from './components/DeployMenu'
 
@@ -9,19 +9,26 @@ function App() {
   const navigationItems = ['Cocción', 'Preparación', 'Mesa y accsorios', 'Consumibles', 'Electrodomesticos', 'Línea profesional']
   const losMasVendidos = [0, 0, 0, 0]
   const [state, setState] = useState(false)
-  const questions = ['Preguna1', 'Preguna2', 'Preguna3']
+  const [character, setCharacter] = useState(null)
+  const [index, setIndex] = useState(2)
+  let arr = []
+  
+  try{
+    for(let i = 0; i < 5; i++){
+      arr.push(character.episode[i])
+    }
+    console.log(arr)
+  } catch {
+    console.log('ERROR')
+  }
 
-  const setModal = Q => {
-    if(Q === 'Preguna1'){
-      state.Preguna1 = !state.Preguna1
-    }
-    if(Q === 'Preguna2'){
-      state.Preguna2 = !state.Preguna2
-    }
-    if(Q === 'Preguna2'){
-      state.Preguna3 = !state.Preguna3
-    }
-  } 
+
+  useEffect(() => {
+    fetch(`https://rickandmortyapi.com/api/character/${index}`)
+    .then(data => data.json())
+    .then(data => setCharacter(data))
+    .catch(setCharacter(false))
+  }, [index])
 
   return (
     <div className="App">
@@ -93,7 +100,6 @@ function App() {
           </h1>
       </div>
       <div className="App-losMasVendidos-content">
-
         {
           losMasVendidos.map((element, index) => {
             return (
@@ -135,7 +141,33 @@ function App() {
           </div>
         </div>
         <div className="App-character-container">
-
+          <div className="App-character-inner-container">
+              <div className="App-character__img-container">
+                <h3 className="App-character__title">Personaje</h3>
+                {
+                character && <img src={character.image} alt="Foto del personaje" className='App-character__img'/>
+                }
+                {
+                !character && <img src='/images/err.png' alt="Cargando contenido" className='App-character__img'/>
+                }
+              </div>
+              <div className="App-character-info-continer">
+                  <p>Nombre: <span className="App-character__info">{character?character.name: 'Cargando...'}</span></p>
+                  <p>Genero: <span className="App-character__info">{character?character.gender: 'Cargando...'}</span></p>
+                  <p>Episodes:</p>
+                  <ul>
+                    {
+                      arr.map(el => {
+                        return <li className="App-character__info">{el}</li>
+                      })
+                    }
+                  </ul>
+                  <div className="App-character-selector-container">
+                    <button className="App-main-heroContainer__btn" onClick={() => setIndex(index - 1)}>Anterior</button>
+                    <button className="App-main-heroContainer__btn" onClick={() => setIndex(index + 1)}>Siguiente</button>
+                  </div>
+              </div>
+          </div>
         </div>
       </div>
     </div>
