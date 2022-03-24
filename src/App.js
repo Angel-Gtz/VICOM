@@ -7,7 +7,8 @@ function App() {
 
   const [menu, setMenu] = useState(false)
   const navigationItems = ['Cocción', 'Preparación', 'Mesa y accsorios', 'Consumibles', 'Electrodomesticos', 'Línea profesional']
-  const losMasVendidos = [{}, {}, {}, {}]
+  const losMasVendidos = [0, 0, 0, 0]
+  const [state, setState] = useState('')
 
   return (
     <div className="App">
@@ -67,12 +68,16 @@ function App() {
             <p className="App-main-heroContainer__text">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
             </p>
-            <button className="App-main-heroContainer__btn">VER TODO</button>
+            <button className="App-main-heroContainer__btn">
+              VER TODO
+            </button>
           </div>
         </div>
       </main>
       <div className="App-losMasVendidos">
-          <h1 className="App-losMasVendidos__title">Los más vendidos</h1>
+          <h1 className="App-losMasVendidos__title">
+            Los más vendidos
+          </h1>
       </div>
       <div className="App-losMasVendidos-content">
 
@@ -81,13 +86,80 @@ function App() {
             return (
               <div className="App-losMasVendidos-box">
                 <img src="/images/placeholder.png" />
-                <h3 className="App-losMasVendidos__subtitle">Titulo</h3>
-                <p className="App-losMasVendidos__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <button className="App-main-heroContainer__btn">VER TODO</button>
+                <h3 className="App-losMasVendidos__subtitle">
+                  Titulo
+                </h3>
+                <p className="App-losMasVendidos__text">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </p>
+                <button className="App-main-heroContainer__btn">
+                  VER TODO
+                </button>
               </div>
             )
           })
         }
+      </div>
+      <div className="App-characterAndQuestions-container">
+        <div className="App-questions-container">
+          <div className="App-questions-inner-container">
+            <div className="App-questions-question-container">
+              <p className="App-questions-title">
+                  Pregunta 1
+              </p>
+              <p className="App__plus" onClick={() => setState('Q1')}>
+                {state === 'Q1' ? '-' : '+'}
+              </p>
+            </div>
+            {
+              state === 'Q1' && 
+              <div className="App-question-textBox">
+                <p className="App-question__text">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                </p>
+            </div>
+            }
+          </div>
+          <div className="App-questions-inner-container">
+            <div className="App-questions-question-container">
+              <p className="App-questions-title">
+                  Pregunta 2
+              </p>
+              <p className="App__plus" onClick={() => setState('Q2')}>
+                {state === 'Q2' ? '-' : '+'}
+              </p>
+            </div>
+            {
+              state === 'Q2' && 
+              <div className="App-question-textBox">
+                <p className="App-question__text">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                </p>
+            </div>
+            }
+          </div>
+          <div className="App-questions-inner-container">
+            <div className="App-questions-question-container">
+              <p className="App-questions-title">
+                  Pregunta 3
+              </p>
+              <p className="App__plus" onClick={() => setState('Q3')}>
+                {state === 'Q3' ? '-' : '+'}
+              </p>
+            </div>
+            {
+              state === 'Q3' && 
+              <div className="App-question-textBox">
+                <p className="App-question__text">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                </p>
+            </div>
+            }
+          </div>
+        </div>
+        <div className="App-character-container">
+
+        </div>
       </div>
     </div>
   );
