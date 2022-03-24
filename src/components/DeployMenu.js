@@ -14,7 +14,7 @@ const DeployMenu = ({setMenu, navigationItems}) => {
                 }
             </div>
             <div className="DeployMenu-login">
-                {/* <UserIcon /> */}
+                <img src="/icons/profile.svg" alt="icono del perfil" className="App-header__icon"/>
                 <h5>Iniciar Sesión</h5>
 
             </div>

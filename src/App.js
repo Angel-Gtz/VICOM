@@ -1,34 +1,56 @@
 import './styles/App.scss';
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import DeployMenu from './components/DeployMenu'
+import BoxSlider from './components/BoxSlider'
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 
 function App() {
 
   const [menu, setMenu] = useState(false)
   const navigationItems = ['Cocción', 'Preparación', 'Mesa y accsorios', 'Consumibles', 'Electrodomesticos', 'Línea profesional']
-  const losMasVendidos = new Array(4).fill(0)
-  const [state, setState] = useState(false)
-  const [character, setCharacter] = useState(null)
+  const losMasVendidos = new Array(8).fill(0)
+  const [state, setState] = useState({
+    q1: false,
+    q2: false,
+    q3: false,
+  })
+  const [character, setCharacter] = useState({})
   const [index, setIndex] = useState(2)
-  let arr = []
-  
-  try{
-    for(let i = 0; i < 5; i++){
-      arr.push(character.episode[i])
-    }
-    console.log(arr)
-  } catch {
-    console.log('ERROR')
-  }
 
+  const toggleQuestion = obj => {
+    setState(obj)
+  }
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    
+  }
+  
+  const sliderRef = useRef()
+  const next = () => {
+    sliderRef.current.slickNext()
+  }
+  const previous = () => {
+    sliderRef.current.slickPrev()
+  }
 
   useEffect(() => {
     fetch(`https://rickandmortyapi.com/api/character/${index}`)
     .then(data => data.json())
-    .then(data => setCharacter(data))
+    .then(data => {
+      data.episode = data.episode.slice(0, 5)
+      setCharacter(data)
+    })
     .catch(setCharacter(false))
   }, [index])
-
+  
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -98,26 +120,19 @@ function App() {
           <h1 className="App-losMasVendidos__title">
             Los más vendidos
           </h1>
+          <div className="App-losMasVendidos__arrows">
+              <img src="/icons/leftArrow.png" alt="flecha izquierda" className="App-losMasVendidos__arrow" onClick={previous}/>
+              <img src="/icons/rightArrow.png" alt="flecha derecha" className="App-losMasVendidos__arrow" onClick={next}/>
+          </div>
       </div>
       <div className="App-losMasVendidos-content">
-        {
-          losMasVendidos.map((element, index) => {
-            return (
-              <div className="App-losMasVendidos-box" key={index}>
-                <img src="/images/placeholder.png" />
-                <h3 className="App-losMasVendidos__subtitle">
-                  Titulo
-                </h3>
-                <p className="App-losMasVendidos__text">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                </p>
-                <button className="App-main-heroContainer__btn">
-                  VER TODO
-                </button>
-              </div>
-            )
-          })
-        }
+        <div className="App-slider">
+          <Slider {...settings} ref={sliderRef}>
+              {
+                losMasVendidos.map((el, index) => <BoxSlider key={index}/>)
+              }
+          </Slider>
+        </div>
       </div>
       <div className="App-characterAndQuestions-container">
         <div className="App-questions-container"> 
@@ -126,12 +141,60 @@ function App() {
               <p>
                   Pregunta 1
               </p>
-              <p className="App__plus" onClick={() => setState(!state)}> 
-                {state? '-' : '+'}
+              <p className="App__plus" onClick={() => toggleQuestion({
+                q1: !state.q1,
+                q2: false,
+                q3: false
+              })}> 
+                {state.q1? '-' : '+'}
               </p>
             </div>
             {
-              state && 
+              state.q1 && 
+              <div className="App-question-textBox">
+                <p className="App-question__text">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                </p>
+              </div>
+            }
+          </div>
+          <div className="App-questions-inner-container">
+            <div className="App-questions-question-container">
+              <p>
+                  Pregunta 2
+              </p>
+              <p className="App__plus" onClick={() => toggleQuestion({
+                q1: false,
+                q2: !state.q2,
+                q3: false
+              })}> 
+                {state.q2? '-' : '+'}
+              </p>
+            </div>
+            {
+              state.q2 && 
+              <div className="App-question-textBox">
+                <p className="App-question__text">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                </p>
+              </div>
+            }
+          </div>
+          <div className="App-questions-inner-container">
+            <div className="App-questions-question-container">
+              <p>
+                  Pregunta 3
+              </p>
+              <p className="App__plus" onClick={() => toggleQuestion({
+                q1: false,
+                q2: false,
+                q3: !state.q3
+              })}> 
+                {state.q3? '-' : '+'}
+              </p>
+            </div>
+            {
+              state.q3 && 
               <div className="App-question-textBox">
                 <p className="App-question__text">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
@@ -156,9 +219,9 @@ function App() {
                   <p>Genero: <span className="App-character__info">{character?character.gender: 'Cargando...'}</span></p>
                   <p>Episodes:</p>
                   <ul>
-                    {
-                      arr.map(el => {
-                        return <li className="App-character__info">{el}</li>
+                    {   
+                      character.episode?.map(el => {
+                        return <li className="App-character__info" key={el}>{el}</li>
                       })
                     }
                   </ul>

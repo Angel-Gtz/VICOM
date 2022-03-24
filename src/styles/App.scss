@@ -278,14 +278,22 @@
 
   .App-losMasVendidos{
     @extend .flex-center;
-    flex-direction: column;
-    width: 100%;
+    justify-content: flex-end;
+    width: 90%;
   }
 
   .App-losMasVendidos__title{
     font-family: 'Museo-Sans';
     font-weight: 700;
     font-size: 50px;
+    margin-right: 20%;
+  }
+
+  .App-losMasVendidos__arrows{
+    @extend .flex-center;
+    justify-content: space-between;
+    width: 120px;
+    height: 100%;
   }
 
   .App-losMasVendidos-content{
@@ -295,6 +303,27 @@
     justify-self: center;
     width: 95%;
   }
+
+  // Los cuadros eran responsive pero con el slider no super como aplicar glid
+
+  .App-slider{
+    width: 95vw;
+  }
+
+  .App__dots{
+    @extend .flex-center;
+    width: 100px;
+    ul{
+      list-style-type: none;
+    }
+    button{
+      background-color: rgb(196,196,196);
+      color: rgb(196,196,196);
+      border: none;
+      border-radius: 50%;
+    }
+  }
+
 
   .App-losMasVendidos-box{
     flex-direction: column;
