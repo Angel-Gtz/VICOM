@@ -8,7 +8,20 @@ function App() {
   const [menu, setMenu] = useState(false)
   const navigationItems = ['Cocción', 'Preparación', 'Mesa y accsorios', 'Consumibles', 'Electrodomesticos', 'Línea profesional']
   const losMasVendidos = [0, 0, 0, 0]
-  const [state, setState] = useState('')
+  const [state, setState] = useState(false)
+  const questions = ['Preguna1', 'Preguna2', 'Preguna3']
+
+  const setModal = Q => {
+    if(Q === 'Preguna1'){
+      state.Preguna1 = !state.Preguna1
+    }
+    if(Q === 'Preguna2'){
+      state.Preguna2 = !state.Preguna2
+    }
+    if(Q === 'Preguna2'){
+      state.Preguna3 = !state.Preguna3
+    }
+  } 
 
   return (
     <div className="App">
@@ -84,7 +97,7 @@ function App() {
         {
           losMasVendidos.map((element, index) => {
             return (
-              <div className="App-losMasVendidos-box">
+              <div className="App-losMasVendidos-box" key={index}>
                 <img src="/images/placeholder.png" />
                 <h3 className="App-losMasVendidos__subtitle">
                   Titulo
@@ -101,59 +114,23 @@ function App() {
         }
       </div>
       <div className="App-characterAndQuestions-container">
-        <div className="App-questions-container">
+        <div className="App-questions-container"> 
           <div className="App-questions-inner-container">
             <div className="App-questions-question-container">
-              <p className="App-questions-title">
+              <p>
                   Pregunta 1
               </p>
-              <p className="App__plus" onClick={() => setState('Q1')}>
-                {state === 'Q1' ? '-' : '+'}
+              <p className="App__plus" onClick={() => setState(!state)}> 
+                {state? '-' : '+'}
               </p>
             </div>
             {
-              state === 'Q1' && 
+              state && 
               <div className="App-question-textBox">
                 <p className="App-question__text">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
                 </p>
-            </div>
-            }
-          </div>
-          <div className="App-questions-inner-container">
-            <div className="App-questions-question-container">
-              <p className="App-questions-title">
-                  Pregunta 2
-              </p>
-              <p className="App__plus" onClick={() => setState('Q2')}>
-                {state === 'Q2' ? '-' : '+'}
-              </p>
-            </div>
-            {
-              state === 'Q2' && 
-              <div className="App-question-textBox">
-                <p className="App-question__text">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-                </p>
-            </div>
-            }
-          </div>
-          <div className="App-questions-inner-container">
-            <div className="App-questions-question-container">
-              <p className="App-questions-title">
-                  Pregunta 3
-              </p>
-              <p className="App__plus" onClick={() => setState('Q3')}>
-                {state === 'Q3' ? '-' : '+'}
-              </p>
-            </div>
-            {
-              state === 'Q3' && 
-              <div className="App-question-textBox">
-                <p className="App-question__text">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-                </p>
-            </div>
+              </div>
             }
           </div>
         </div>

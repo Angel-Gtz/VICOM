@@ -313,7 +313,6 @@
 .App-characterAndQuestions-container{
   @extend .flex-center;
   width: 100%;
-  // background-color: yellow;
   margin-top: 100px;
 }
 
@@ -321,16 +320,14 @@
   @extend .flex-center;
   flex-direction: column;
   width: 50%;
-  // background-color: red;
 }
 
 .App-questions-inner-container{
-  width: 60%;
-  height: 60%;
+  height: auto;
+  width: 440px;
   @extend .flex-center;
   flex-direction: column;
   border-bottom: 2px solid rgb(102,102,102);
-  // background-color: green
 }
 
 .App-questions-question-container{
@@ -340,12 +337,7 @@
   height: 50px;
   font-family: 'Museo-Sans';
   font-weight: 700;
-  // background-color: chartreuse;
   font-size: 30px;
-}
-
-.App-questions-title{
-  
 }
 
 .App__plus{
@@ -431,7 +423,6 @@
 
   .App-main-heroContainer-fryingPanContainer{
     width: 80%;
-    // background-color: red;
   }
 
   .App-main-heroContainer-textContainer{
@@ -439,11 +430,31 @@
     padding: 0;
   }
 
+  .App-characterAndQuestions-container{
+    flex-direction: column
+  }
+  
+  .App-questions-container{
+    width: 100%;
+  }
+
+  .App-character-container{
+    width: 100%;
+  }
+
+
 }
 
 @media only screen and (max-width: 630px) {
   .App-main__fryingPanImg{
     height: 60%;
     width: 60%;
+  }
+
+}
+
+@media only screen and (max-width: 500px) {
+  .App-questions-inner-container{
+    width: 300px;
   }
 }
